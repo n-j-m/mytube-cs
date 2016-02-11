@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+{{#if myVideos}}
+<h2>My Videos</h2>
+<ul>
+{{#each myVideos}}
+  <li>
+    {{title}}
+  </li>
+{{/each}}
+</ul>
+{{/if}}

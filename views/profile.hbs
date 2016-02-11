@@ -1,0 +1,24 @@
+<h1>User: {{user.username}}</h1>
+<img class="img-responsive img-circle"
+  src="http://placehold.it/150x150" />
+
+<div class="col-xs-6">
+  <h2>Upload Video</h2>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" name="title" placeholder="Title" />
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" class="form-control" name="description" placeholder="Description" />
+    </div>
+    <div class="form-group">
+      <label>Video</label>
+      <input type="file" class="form-control" name="video" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Upload</button>
+    </div>
+  </form>
+</div>
