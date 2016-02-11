@@ -20,12 +20,14 @@ const uploader = multer({ storage });
 const uploadRouter = require("express").Router();
 
 uploadRouter.post("/upload", uploader.single("video"), (req, res, next) => {
-  console.log("request:", {
-    bodey: req.body,
-    file: req.file,
-    user: req.user
-  });
-  res.redirect("/profile");
+  const videos = req.users.videos();
+  videos.create(
+    Object.assign({}, req.body, {
+      path: path.resolve(req.file.path)
+    })
+  )
+  .then(() => res.redirect("/"))
+  .catch(next);
 });
 
 module.exports = uploadRouter;
